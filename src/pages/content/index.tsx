@@ -1,5 +1,5 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
+import React from "react"
+import { createRoot } from "react-dom/client"
 
 function Content(): JSX.Element {
   return (
@@ -19,14 +19,14 @@ function Content(): JSX.Element {
         <p>Content styled</p>
       </header>
     </div>
-  );
+  )
 }
 
 function init() {
-  const rootContainer = document.body;
-  if (!rootContainer) throw new Error("Can't find Content root element");
-  const root = createRoot(rootContainer);
-  root.render(<Content />);
+  const rootContainer = document.body
+  if (!rootContainer) throw new Error("Can't find Content root element")
+  const root = createRoot(rootContainer)
+  root.render(<Content />)
 }
 
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", init)
