@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, KeyboardEvent } from "react"
+import { useState, ChangeEvent, KeyboardEvent } from "react"
 import { createRoot } from "react-dom/client"
 
 function Content(): JSX.Element {
