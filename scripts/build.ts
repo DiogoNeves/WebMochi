@@ -21,7 +21,6 @@ const __dirname = dirname(__filename);
 const RootDir = resolve(__dirname, "..");
 const SrcDir = resolve(RootDir, "src");
 const pagesDir = resolve(SrcDir, "pages");
-const AssetsDir = resolve(SrcDir, "assets");
 const OutDir = resolve(__dirname, "..", "dist");
 const PublicDir = resolve(__dirname, "..", "public");
 
