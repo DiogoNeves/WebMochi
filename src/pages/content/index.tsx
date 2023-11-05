@@ -1,23 +1,41 @@
-import React from "react"
+import React, { useState, ChangeEvent, KeyboardEvent } from "react"
 import { createRoot } from "react-dom/client"
 
 function Content(): JSX.Element {
+  const [message, setMessage] = useState("")
+
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>): void {
+    setMessage(event.target.value)
+  }
+
+  function handleSend(): void {
+    if (message) {
+      sendMessage(message)
+      setMessage("")
+    }
+  }
+
+  function handleKeyDown(event: KeyboardEvent<HTMLInputElement>): void {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault()
+      handleSend()
+    }
+  }
+
+  function sendMessage(message: string): void {
+    console.log("Message sent:", message)
+  }
+
   return (
-    <div className="absolute top-0 left-0 right-0 bottom-0 text-center h-full p-3 bg-gray-800">
-      <header className="flex flex-col items-center justify-center text-white">
-        <p>
-          Edit <code>src/pages/content/index.jsx</code> and save to reload.
-        </p>
-        <a
-          className="text-blue-400"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React!
-        </a>
-        <p>Content styled</p>
-      </header>
+    <div className="chat-component">
+      <input
+        type="text"
+        value={message}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
+        placeholder="Type your message..."
+      />
+      <button onClick={handleSend}>Send</button>
     </div>
   )
 }
